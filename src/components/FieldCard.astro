@@ -1,0 +1,57 @@
+---
+import type { Field } from '../data/fields';
+
+interface Props {
+  field: Field;
+}
+
+const { field } = Astro.props;
+---
+
+{field.isPitch ? (
+  <article class="card pitch">
+    <h3 class="pitch-title">{field.title}</h3>
+    <p>If your users are experts and your product runs on data, <a href="#contact">let's talk</a>.</p>
+  </article>
+) : (
+  <article class="card sl-row">
+    <h3>{field.title}</h3>
+    <p>{field.body}</p>
+  </article>
+)}
+
+<style>
+  .card {
+    background: var(--color-paper);
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--color-ink-soft);
+  }
+  .pitch {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+  .pitch-title {
+    color: var(--color-accent);
+  }
+  .pitch p {
+    color: var(--color-border);
+  }
+  .pitch a {
+    color: var(--color-paper);
+  }
+</style>

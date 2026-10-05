@@ -1,0 +1,87 @@
+---
+import type { TrackRecordEntry } from '../data/trackRecord';
+
+interface Props {
+  entry: TrackRecordEntry;
+}
+
+const { entry } = Astro.props;
+---
+
+<article class="entry">
+  <div class="period-col">
+    <span class={`period ${entry.current ? 'current' : ''}`}>{entry.period}</span>
+    <span class="eyebrow">{entry.eyebrow}</span>
+  </div>
+  <div class="content">
+    <h3>{entry.title}</h3>
+    <p>{entry.body}</p>
+    <div class="tags">
+      {entry.tags.map((tag) => <span class="tag">{tag}</span>)}
+    </div>
+  </div>
+</article>
+
+<style>
+  .entry {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 40px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--color-border-dark);
+  }
+  .period-col {
+    flex: 1 1 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .period {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: var(--text-xl);
+    line-height: 1;
+  }
+  .period.current {
+    color: var(--color-accent);
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-border);
+  }
+  .content {
+    flex: 999 1 520px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    min-width: 0;
+  }
+  h3 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  p {
+    margin: 0;
+    color: var(--color-border);
+    max-width: 640px;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .tag {
+    padding: 5px 10px;
+    border: 1px solid var(--color-tag-border);
+  }
+</style>

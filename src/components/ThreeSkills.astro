@@ -1,0 +1,71 @@
+---
+import { skills } from '../data/skills';
+import SkillCard from './SkillCard.astro';
+---
+
+<section id="niche" aria-labelledby="niche-h" class="niche">
+  <div class="heading-row">
+    <div class="heading">
+      <p class="eyebrow">02 / Approach</p>
+      <h2 id="niche-h">Three skills<br />that travel.</h2>
+    </div>
+    <p class="intro">
+      I learned this in sport, but the same pattern shows up in most industries. Specialists are
+      buried in data, engineers need clear problems and leaders want a roadmap they can trust.
+      I've been the user, the translator and the builder, which makes me quick at turning what
+      people need into what gets built.
+    </p>
+  </div>
+
+  <div class="cards">
+    {skills.map((skill) => <SkillCard skill={skill} />)}
+  </div>
+</section>
+
+<style>
+  .niche {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: var(--space-10) var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-7);
+  }
+  .heading-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr));
+    gap: 24px 64px;
+    align-items: end;
+  }
+  .heading {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .eyebrow {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: var(--text-section-h);
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .intro {
+    margin: 0;
+    max-width: 520px;
+    color: var(--color-ink-soft);
+    text-wrap: pretty;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    border-top: 2px solid var(--color-ink);
+  }
+</style>

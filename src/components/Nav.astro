@@ -1,0 +1,75 @@
+---
+const links = [
+  { href: '#niche', label: 'Approach' },
+  { href: '#fields', label: 'Fields' },
+  { href: '#work', label: 'Work' },
+  { href: '#loadmark', label: 'LoadMark' },
+  { href: '#contact', label: 'Contact' },
+];
+---
+
+<header>
+  <div class="bar">
+    <a href="#top" class="brand">
+      <span class="mark">SL</span>
+      <span class="name">Simone Lacava</span>
+    </a>
+    <nav aria-label="Main" class="sl-nav">
+      {links.map((link) => <a href={link.href}>{link.label}</a>)}
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    border-bottom: 1px solid var(--color-border);
+  }
+  .bar {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 18px var(--space-5);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--color-ink);
+  }
+  .mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+  }
+  .name {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .sl-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 24px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .sl-nav a {
+    padding: 12px 0;
+    text-decoration: none;
+  }
+</style>

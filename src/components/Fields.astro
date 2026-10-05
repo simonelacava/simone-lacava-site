@@ -1,0 +1,69 @@
+---
+import { fields } from '../data/fields';
+import FieldCard from './FieldCard.astro';
+---
+
+<section id="fields" aria-labelledby="fields-h" class="fields">
+  <div class="heading-row">
+    <div class="heading">
+      <p class="eyebrow">03 / Where it transfers</p>
+      <h2 id="fields-h">Same playbook,<br />new pitch.</h2>
+    </div>
+    <p class="intro">Fields where I'd hit the ground running, and the experience that gets me there.</p>
+  </div>
+
+  <div class="grid">
+    {fields.map((field) => <FieldCard field={field} />)}
+  </div>
+</section>
+
+<style>
+  .fields {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 0 var(--space-5) var(--space-10);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+  .heading-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: end;
+    gap: var(--space-4);
+  }
+  .heading {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .eyebrow {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: var(--text-section-h);
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .intro {
+    margin: 0;
+    max-width: 420px;
+    color: var(--color-ink-soft);
+    text-wrap: pretty;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: 1px;
+    background: var(--color-ink);
+    border: 1px solid var(--color-ink);
+  }
+</style>

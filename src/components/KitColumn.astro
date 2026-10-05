@@ -1,0 +1,35 @@
+---
+import type { KitColumn } from '../data/kit';
+
+interface Props {
+  column: KitColumn;
+}
+
+const { column } = Astro.props;
+---
+
+<div class="col">
+  <h3>{column.title}</h3>
+  <p set:html={column.lines.join('<br>')} />
+</div>
+
+<style>
+  .col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  h3 {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  p {
+    margin: 0;
+    line-height: 1.7;
+  }
+</style>

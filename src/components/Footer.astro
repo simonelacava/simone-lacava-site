@@ -1,0 +1,30 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="inner">
+    <span>© {year} Simone Lacava</span>
+    <span>Hand-built, AI-assisted · London</span>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: var(--color-ink);
+    color: var(--color-muted-dark);
+  }
+  .inner {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 22px var(--space-5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+</style>

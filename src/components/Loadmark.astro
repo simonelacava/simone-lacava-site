@@ -1,0 +1,186 @@
+---
+import { Image } from 'astro:assets';
+import loadmarkShot from '../assets/images/loadmark.png';
+
+const features = [
+  'CSV imports from Catapult, STATSports and PlayerTek',
+  "Sessions benchmarked against each team's own match demands",
+  'Training Stress Balance with automatic EWMA and risk flags',
+];
+---
+
+<section id="loadmark" aria-labelledby="lm-h" class="loadmark">
+  <div class="copy">
+    <p class="eyebrow">05 / Side project · Founder</p>
+    <h2 id="lm-h">Load<span class="accent">mark</span></h2>
+    <p class="tagline">GPS load monitoring built for practitioners, not spreadsheets.</p>
+    <p class="body">
+      Every coach I worked with asked the same question. How hard did we work today? LoadMark
+      answers it without anyone maintaining a spreadsheet every season. I designed, built and run
+      it myself, from discovery and code to pricing and launch.
+    </p>
+    <ul class="features">
+      {features.map((feature, i) => (
+        <li>
+          <span class="num">{String(i + 1).padStart(2, '0')}</span>
+          <span>{feature}</span>
+        </li>
+      ))}
+    </ul>
+    <div class="actions">
+      <a class="sl-btn btn" href="https://www.loadmark.app/">
+        Visit loadmark.app
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M5 11L11 5M6 5h5v5"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <figure class="screenshot">
+    <div class="chrome">
+      <span class="dots">
+        <span></span><span></span><span></span>
+      </span>
+      <span class="url">loadmark.app</span>
+    </div>
+    <a href="https://www.loadmark.app/">
+      <Image
+        src={loadmarkShot}
+        alt="LoadMark homepage: GPS load monitoring built for practitioners, not spreadsheets"
+        width={840}
+        height={600}
+      />
+    </a>
+  </figure>
+</section>
+
+<style>
+  .loadmark {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: var(--space-10) var(--space-5);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+    gap: 56px;
+    align-items: center;
+  }
+  .copy {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    min-width: 0;
+  }
+  .eyebrow {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: var(--text-display-md);
+    line-height: 0.85;
+    text-transform: uppercase;
+  }
+  .accent {
+    color: var(--color-accent);
+  }
+  .tagline {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.35;
+    max-width: 520px;
+  }
+  .body {
+    margin: 0;
+    color: var(--color-ink-soft);
+    max-width: 520px;
+  }
+  .features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-border);
+  }
+  .features li {
+    display: flex;
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .num {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--color-muted);
+    min-width: 28px;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 0 22px;
+    background: var(--color-accent);
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .screenshot {
+    margin: 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 16px 16px 0 var(--color-accent);
+    border: 1px solid var(--color-ink);
+    background: var(--color-ink);
+  }
+  .chrome {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 10px 14px;
+    background: var(--color-terminal-bar);
+    border-bottom: 1px solid var(--color-border-dark);
+  }
+  .dots {
+    display: flex;
+    gap: 6px;
+  }
+  .dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-dot-dark);
+  }
+  .url {
+    flex: 1;
+    padding: 4px 10px;
+    background: var(--color-ink);
+    color: var(--color-muted-dark);
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+  .screenshot a {
+    display: block;
+    line-height: 0;
+  }
+  .screenshot :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>
